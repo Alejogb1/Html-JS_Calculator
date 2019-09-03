@@ -4,10 +4,11 @@ const keys = calculator.querySelector(".calculator_keys");
 keys.addEventListener("click", e => {
     if (e.target.matches("button")) {
       // Do something
-      const action = key.dataset.action
       const key = e.target
+      const action = key.dataset.action
+      console.log(key)
    }})
-   
+
 
 
    if (!action) {
@@ -59,6 +60,7 @@ if (
     action === "subtract"
 ) {
     key.classList.add("is-depressed")
+    calculator.dataset.previousKetType = "operator"
 }
 keys.addEventListener("click", e => {
     if (e.target.matches("button")) {
@@ -67,3 +69,11 @@ keys.addEventListener("click", e => {
     array.from(key.parentNode.children)
     .forEach(k => k.classList.remove("is-depressed"))
 })
+const previousKeyType = calculator.dataset.previousKeyType
+
+if (!action) {
+    if(displayedNum === "0", previousKeyType === "operator")
+    display.textContent = keyContent
+} else {
+    display.textContent = displayedNum + keyContent
+}
