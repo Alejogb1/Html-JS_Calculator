@@ -20,7 +20,7 @@ keys.addEventListener('click', e => {
             display.textContent = displayedNum + keyContent;
         }
     if (!action) {
-        console.log('number key!')
+        console.log('number key!'),
     }
     
     if (
