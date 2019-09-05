@@ -1,8 +1,6 @@
 const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.calculator_keys')
 const display = document.querySelector('.calculator_display')
-
-const displayedNum;
 keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
         const key = e.target
@@ -19,10 +17,7 @@ keys.addEventListener('click', e => {
         } else {
             display.textContent = displayedNum + keyContent;
         }
-    if (!action) {
-        console.log('number key!'),
-    }
-    
+      }
     if (
         action === 'add' ||
         action === 'subtract' ||
@@ -34,7 +29,7 @@ keys.addEventListener('click', e => {
  
 
 if (action === 'decimal') {
-    console.log('decimal key!')
+    displayedNum = keyContent + "."
   }
   
   if (action === 'clear') {
@@ -42,43 +37,7 @@ if (action === 'decimal') {
   }
   
   if (action === 'calculate') {
-    console.log('equal key!')
+    const secondValue = displayedNum
   }
-})
-
-  /*if (!action) {
-    if (displayedNum === "0"){
-        display.textContent = keyContent
     }
-} else {
-    display.textContent = displayedNum + keyContent
-}
-if (action === "decimal") {
-    display.textContent = displayedNum + "."
-}
-if (
-    action === "add" ||
-    action === "divide" ||
-    action === "multiply" ||
-    action === "subtract"
-) {
-    key.classList.add("is-depressed")
-    calculator.dataset.previousKetType = "operator"
-}
-keys.addEventListener("click", e => {
-    if (e.target.matches("button")) {
-        const key = e.target
-    }
-    array.from(key.parentNode.children)
-    .forEach(k => k.classList.remove("is-depressed"))
-})
-const previousKeyType = calculator.dataset.previousKeyType
-
-if (!action) {
-    if(displayedNum === "0", previousKeyType === "operator")
-    display.textContent = keyContent
-} else {
-    display.textContent = displayedNum + keyContent
-}*/
-
- 
+  })
