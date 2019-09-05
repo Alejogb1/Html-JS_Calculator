@@ -1,7 +1,6 @@
 {
   "name": "clear",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "deploy": "gh-pages -d dist"
@@ -18,5 +17,7 @@
   "homepage": "https://github.com/Alejogb1/Html_Calculator#readme",
   "dependencies": {
     "gh-pages": "^2.1.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
