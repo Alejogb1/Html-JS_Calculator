@@ -76,3 +76,6 @@ body {
     background-image: linear-gradient(to bottom, #fe886a, #ff7033);
     grid-row: 2 / span 4;
 }
+.container {
+    max-width: 20em;
+}
