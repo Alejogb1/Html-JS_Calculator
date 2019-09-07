@@ -70,10 +70,11 @@ body {
     z-index: 1;
 }
 .key_operator {
-    background-color: linear-gradient(to bottom, #fe886a, #ff7033);
+    background-color: #eee;
 }
 .key_equal {
     background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+    grid-column: -2;
     grid-row: 2 / span 4;
 }
 .container {
