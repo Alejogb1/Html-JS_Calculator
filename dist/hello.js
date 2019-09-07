@@ -14,21 +14,6 @@ const calculate = (n1, operator, n2) => {
     result = parseFloat(n1) / parseFloat(n2) 
   }
   return result
-  
-}
-if (
-  firstValue &&
-  operator &&
-  previousKeyType !== 'operator'
-) {
-  const calcValue = calculate(firstValue, operator, secondValue)
-  display.textContent = calcValue
-  
-// Update calculated value as firstValue
-  calculator.dataset.firstValue = calcValue
-} else {
-  // If there are no calculations, set displayedNum as the firstValue
-  calculator.dataset.firstValue = displayedNum
 }
 keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
@@ -50,7 +35,8 @@ keys.addEventListener('click', e => {
             display.textContent = displayedNum + keyContent;
         }
       }
-    if (
+    // Operators section
+      if (
         action === 'add' ||
         action === 'subtract' ||
         action === 'multiply' ||
@@ -59,12 +45,18 @@ keys.addEventListener('click', e => {
         const firstValue = calculator.dataset.firstValue
         const operator = calculator.dataset.operator
         const secondValue = displayedNum
-        if (firstValue && operator) {
+        if (firstValue &&
+            operator && 
+            previousKeyType !== "operator" // If the previous key is an operator, we shouldn't click it again (Bug)
+            ) {
           display.textContent = calculate(firstValue, operator, secondValue)
         }
         key.classList.add("is-depressed")
+        // Add custom atribute, indicating that the Previous key is an operator
         calculator.dataset.previousKeyType = "operator"
-        calculator.dataset.firstValue = displayedNum
+        // Displayed num will be the first value
+        calculator.dataset.firstValue = displayedNum 
+        // Then the user will click (action) an operator so I will store it
         calculator.dataset.operator = action
       }
  
@@ -79,11 +71,12 @@ if (action === 'decimal') {
     calculator.dataset.previousKey = "clear"
   }
   
-  if (action === 'calculate') {
+  if (action === 'calculate' &&
+  previousKeyType !== "operator") {
+    // I've already stored firstV and operator, so I define them. 
     const operator = calculator.dataset.operator
     const firstValue = calculator.dataset.firstValue
-    const secondValue = displayedNum
-    calculator.dataset.previousKey = "calculate"
+    const secondValue = displayedNum // I didn't have the necessity to store it, cz it's been displayed
     display.textContent = calculate(firstValue, operator, secondValue)
   }
   
