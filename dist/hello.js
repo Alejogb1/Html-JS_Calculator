@@ -16,6 +16,20 @@ const calculate = (n1, operator, n2) => {
   return result
   
 }
+if (
+  firstValue &&
+  operator &&
+  previousKeyType !== 'operator'
+) {
+  const calcValue = calculate(firstValue, operator, secondValue)
+  display.textContent = calcValue
+  
+// Update calculated value as firstValue
+  calculator.dataset.firstValue = calcValue
+} else {
+  // If there are no calculations, set displayedNum as the firstValue
+  calculator.dataset.firstValue = displayedNum
+}
 keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
         const key = e.target
