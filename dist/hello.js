@@ -4,7 +4,7 @@ const display = document.querySelector('.calculator_display')
 // Calculate Function
 const calculate = (n1, operator, n2) => {
   let result = ""
-  
+  console.log(n1, operator, n2)
   if (operator === "add") {
     result = parseFloat(n1) + parseFloat(n2)
   } else if (operator === "subtract") {
@@ -15,6 +15,7 @@ const calculate = (n1, operator, n2) => {
     result = parseFloat(n1) / parseFloat(n2) 
   }
   return result
+  
 }
 keys.addEventListener('click', e => {
 // Function to store buttons 
@@ -28,7 +29,7 @@ keys.addEventListener('click', e => {
 
         Array.from(key.parentNode.children)
         .forEach( k => k.classList.remove("is-depressed"))
-// Numbers Section
+// Numbers Section / Not Action
     if (!action) {
         if (displayedNum === "0" || previousKeyType === "operator ") {
             display.textContent = keyContent
@@ -38,7 +39,7 @@ keys.addEventListener('click', e => {
             display.textContent = displayedNum + keyContent;
         }
       }
-// Operators section
+// Operators section/ Action 
       if (
         action === 'add' ||
         action === 'subtract' ||
