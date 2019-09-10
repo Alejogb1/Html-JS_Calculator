@@ -1,6 +1,7 @@
 const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.calculator_keys')
 const display = document.querySelector('.calculator_display')
+// Calculate Function
 const calculate = (n1, operator, n2) => {
   let result = ""
   
@@ -16,7 +17,8 @@ const calculate = (n1, operator, n2) => {
   return result
 }
 keys.addEventListener('click', e => {
-    if (e.target.matches('button')) {
+// Function to store buttons /
+  if (e.target.matches('button')) {
         const key = e.target
         const action = key.dataset.action
         const keyContent = key.textContent
@@ -26,6 +28,7 @@ keys.addEventListener('click', e => {
 
         Array.from(key.parentNode.children)
         .forEach( k => k.classList.remove("is-depressed"))
+// Numbers Section
     if (!action) {
         if (displayedNum === "0" || previousKeyType === "operator ") {
             display.textContent = keyContent
@@ -35,16 +38,18 @@ keys.addEventListener('click', e => {
             display.textContent = displayedNum + keyContent;
         }
       }
-    // Operators section
+// Operators section
       if (
         action === 'add' ||
         action === 'subtract' ||
         action === 'multiply' ||
         action === 'divide'
       ) {
+        //Definining the variables
         const firstValue = calculator.dataset.firstValue
         const operator = calculator.dataset.operator
         const secondValue = displayedNum
+// Display result, moment to use calculate func
         if (firstValue &&
             operator && 
             previousKeyType !== "operator" // If the previous key is an operator, we shouldn't click it again (Bug)
@@ -60,7 +65,7 @@ keys.addEventListener('click', e => {
         calculator.dataset.operator = action
       }
  
-
+// "Special Keys" section
 if (action === 'decimal') {
     if (!displayedNum.includes("."))  {
       display.textContent = displayedNum + "."
@@ -72,8 +77,8 @@ if (action === 'decimal') {
   }
   
   if (action === 'calculate' &&
-  previousKeyType !== "operator") {
-    // I've already stored firstV and operator, so I define them. 
+      previousKeyType !== "operator") {
+    // Redefining the variables because they are local-scoped ones (!= Global) 
     const operator = calculator.dataset.operator
     const firstValue = calculator.dataset.firstValue
     const secondValue = displayedNum // I didn't have the necessity to store it, cz it's been displayed
