@@ -17,7 +17,7 @@ const calculate = (n1, operator, n2) => {
   return result
 }
 keys.addEventListener('click', e => {
-// Function to store buttons /
+// Function to store buttons 
   if (e.target.matches('button')) {
         const key = e.target
         const action = key.dataset.action
