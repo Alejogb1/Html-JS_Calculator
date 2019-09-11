@@ -50,22 +50,7 @@ keys.addEventListener('click', e => {
         const firstValue = calculator.dataset.firstValue
         const operator = calculator.dataset.operator
         const secondValue = displayedNum
-// Display result, moment to use calculate func
-        if (firstValue &&
-            operator && 
-            previousKeyType !== "operator" // If the previous key is an operator, we shouldn't click it again (Bug)
-            ) {
-          display.textContent = calculate(firstValue, operator, secondValue)
-        }
-        key.classList.add("is-depressed")
-        // Add custom atribute, indicating that the Previous key is an operator
-        calculator.dataset.previousKeyType = "operator"
-        // Displayed num will be the first value
-        calculator.dataset.firstValue = displayedNum 
-        // Then the user will click (action) an operator so I will store it
-        calculator.dataset.operator = action
-      }
- 
+
 // Special Action/Keys section
 if (action === 'decimal') {
     if (!displayedNum.includes("."))  {
@@ -85,4 +70,4 @@ if (action === 'decimal') {
     display.textContent = calculate(firstValue, operator, secondValue)
   }
   
-}})
+ }})
