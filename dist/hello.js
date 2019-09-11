@@ -39,18 +39,19 @@ keys.addEventListener('click', e => {
             display.textContent = displayedNum + keyContent;
         }
       }
+
 // Operators section/ Action 
       if (
         action === 'add' ||
         action === 'subtract' ||
         action === 'multiply' ||
         action === 'divide'
-      ) {
-        //Definining the variables
-        const firstValue = calculator.dataset.firstValue
-        const operator = calculator.dataset.operator
-        const secondValue = displayedNum
-
+      ) { 
+        key.classList.add("is-depressed")
+        calculator.dataset.previousKeyType = "operator"
+        calculator.dataset.firstValue = displayedNum
+      
+      }
 // Special Action/Keys section
 if (action === 'decimal') {
     if (!displayedNum.includes("."))  {
@@ -70,4 +71,4 @@ if (action === 'decimal') {
     display.textContent = calculate(firstValue, operator, secondValue)
   }
   
- }})
+ }}})
