@@ -66,7 +66,7 @@ keys.addEventListener('click', e => {
         calculator.dataset.operator = action
       }
  
-// "Special Keys" section
+// Special Action/Keys section
 if (action === 'decimal') {
     if (!displayedNum.includes("."))  {
       display.textContent = displayedNum + "."
