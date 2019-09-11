@@ -77,8 +77,7 @@ if (action === 'decimal') {
     calculator.dataset.previousKey = "clear"
   }
   
-  if (action === 'calculate' &&
-      previousKeyType !== "operator") {
+  if (action === 'calculate') {
     // Redefining the variables because they are local-scoped ones (!= Global) 
     const operator = calculator.dataset.operator
     const firstValue = calculator.dataset.firstValue
