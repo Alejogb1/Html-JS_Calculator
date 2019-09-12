@@ -32,9 +32,7 @@ keys.addEventListener('click', e => {
 // Numbers Section / Not Action
     if (!action) {
         if (displayedNum === "0" || previousKeyType === "operator ") {
-            display.textContent = keyContent
-
-            
+            display.textContent = keyContent  
         } else {
             display.textContent = displayedNum + keyContent;
         }
