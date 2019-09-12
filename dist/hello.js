@@ -50,8 +50,8 @@ keys.addEventListener('click', e => {
         key.classList.add("is-depressed")
         calculator.dataset.previousKeyType = "operator"
         calculator.dataset.firstValue = displayedNum
-        calculator.dataset.secondValue = action;
-        console.log(secondValue)
+        calculator.dataset.operator = action;
+        
       }
 // Special Action/Keys section
 if (action === 'decimal') {
@@ -70,5 +70,7 @@ if (action === 'decimal') {
     const firstValue = calculator.dataset.firstValue
     const secondValue = displayedNum // I didn't have the necessity to store it, cz it's been displayed
     display.textContent = calculate(firstValue, operator, secondValue)
+    console.log(secondValue)
+    console.log(firstValue)
   }
  }})
