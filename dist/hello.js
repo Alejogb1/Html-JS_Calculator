@@ -29,14 +29,20 @@ keys.addEventListener('click', e => {
 
         Array.from(key.parentNode.children)
         .forEach( k => k.classList.remove("is-depressed"))
-// Numbers Section / Not Action
+// Display Numbers/ Numbers Section / Not Action
     if (!action) {
         if (displayedNum === "0" || previousKeyType === "operator ") {
             display.textContent = keyContent  
+            console.log(previousKeyType)
         } else {
             display.textContent = displayedNum + keyContent;
         }
       }
+      if (!action) {
+        if (previousKeyType === "operator ") {
+            previousKeyType = keyContent 
+            console.log(previousKeyType) 
+        }
 
 // Operators section/ Action 
       if (
