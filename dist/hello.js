@@ -31,19 +31,12 @@ keys.addEventListener('click', e => {
         .forEach( k => k.classList.remove("is-depressed"))
 // Display Numbers/ Numbers Section / Not Action
     if (!action) {
-        if (displayedNum === "0" || previousKeyType === "operator ") {
+        if (displayedNum === "0" || previousKeyType === "operator") {
             display.textContent = keyContent  
-            console.log(previousKeyType)
         } else {
             display.textContent = displayedNum + keyContent;
         }
       }
-      if (!action) {
-        if (previousKeyType === "operator ") {
-            previousKeyType = keyContent 
-            console.log(previousKeyType) 
-        }
-console.log(action)
 // Operators section/ Action 
       if (
         action === 'add' ||
@@ -77,4 +70,4 @@ if (action === 'decimal') {
     console.log(secondValue)
     console.log(firstValue)
   }
- }}})
+}})
