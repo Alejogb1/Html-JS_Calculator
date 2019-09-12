@@ -69,5 +69,9 @@ if (action === 'decimal') {
     display.textContent = calculate(firstValue, operator, secondValue)
     console.log("The firstvalue is:", firstValue, "!")
     console.log("The second value is:", secondValue,"!")
+  if (firstValue) {
+    display.textContent = calculate(firstValue, operator, secondValue)
   }
+      calculator.dataset.previousKeyType = "calculate"
+}
 }})
