@@ -50,7 +50,7 @@ keys.addEventListener('click', e => {
         key.classList.add("is-depressed")
         calculator.dataset.previousKeyType = "operator"
         calculator.dataset.firstValue = displayedNum
-        calculator.dataset.secondValue = action
+        calculator.dataset.secondValue = action;
         console.log(secondValue)
       }
 // Special Action/Keys section
