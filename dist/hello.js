@@ -43,7 +43,7 @@ keys.addEventListener('click', e => {
             previousKeyType = keyContent 
             console.log(previousKeyType) 
         }
-
+console.log(action)
 // Operators section/ Action 
       if (
         action === 'add' ||
@@ -77,4 +77,4 @@ if (action === 'decimal') {
     console.log(secondValue)
     console.log(firstValue)
   }
- }})
+ }}})
