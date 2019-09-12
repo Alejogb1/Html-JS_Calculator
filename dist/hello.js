@@ -67,7 +67,7 @@ if (action === 'decimal') {
     const firstValue = calculator.dataset.firstValue
     const secondValue = displayedNum // I didn't have the necessity to store it, cz it's been displayed
     display.textContent = calculate(firstValue, operator, secondValue)
-    console.log(secondValue)
-    console.log(firstValue)
+    console.log("The firstvalue is:", firstValue, "!")
+    console.log("The second value is:", secondValue,"!")
   }
 }})
