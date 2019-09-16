@@ -1,9 +1,10 @@
 const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.calculator_keys')
 const display = document.querySelector('.calculator_display')
+// Calculate Function
 const calculate = (n1, operator, n2) => {
   let result = ""
-  
+  console.log(n1, operator, n2)
   if (operator === "add") {
     result = parseFloat(n1) + parseFloat(n2)
   } else if (operator === "subtract") {
@@ -17,7 +18,8 @@ const calculate = (n1, operator, n2) => {
   
 }
 keys.addEventListener('click', e => {
-    if (e.target.matches('button')) {
+// Function to store buttons 
+  if (e.target.matches('button')) {
         const key = e.target
         const action = key.dataset.action
         const keyContent = key.textContent
@@ -27,34 +29,28 @@ keys.addEventListener('click', e => {
 
         Array.from(key.parentNode.children)
         .forEach( k => k.classList.remove("is-depressed"))
+// Display Numbers
     if (!action) {
-        if (displayedNum === "0" || previousKeyType === "operator ") {
-            display.textContent = keyContent
-            calculator.dataset.previousKey = "number"
-            
+        if (displayedNum === "0" || previousKeyType === "operator") {
+            display.textContent = keyContent  
         } else {
             display.textContent = displayedNum + keyContent;
         }
       }
-    if (
+// Operators section/ Action 
+      if (
         action === 'add' ||
         action === 'subtract' ||
         action === 'multiply' ||
         action === 'divide'
-      ) {
-        const firstValue = calculator.dataset.firstValue
-        const operator = calculator.dataset.operator
-        const secondValue = displayedNum
-        if (firstValue && operator) {
-          display.textContent = calculate(firstValue, operator, secondValue)
-        }
+      ) { 
         key.classList.add("is-depressed")
         calculator.dataset.previousKeyType = "operator"
         calculator.dataset.firstValue = displayedNum
-        calculator.dataset.operator = action
+        calculator.dataset.operator = action;
+        
       }
- 
-
+// Special Action/Keys section
 if (action === 'decimal') {
     if (!displayedNum.includes("."))  {
       display.textContent = displayedNum + "."
@@ -66,11 +62,16 @@ if (action === 'decimal') {
   }
   
   if (action === 'calculate') {
+    // Redefining the variables because they are local-scoped ones (!= Global) 
     const operator = calculator.dataset.operator
     const firstValue = calculator.dataset.firstValue
-    const secondValue = displayedNum
-    calculator.dataset.previousKey = "calculate"
+    const secondValue = displayedNum // I didn't have the necessity to store it, cz it's been displayed
+    console.log("The firstvalue is:", firstValue, "!")
+    console.log("The second value is:", secondValue,"!")
+    // Make sure that all values are stored
+    if (firstValue) {
     display.textContent = calculate(firstValue, operator, secondValue)
   }
-  
+      calculator.dataset.previousKeyType = "calculate"
+}
 }})
