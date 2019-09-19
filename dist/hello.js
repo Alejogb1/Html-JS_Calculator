@@ -65,7 +65,7 @@ if (action === 'decimal') {
     // Redefining the variables because they are local-scoped ones (!= Global) 
     const operator = calculator.dataset.operator
     const firstValue = calculator.dataset.firstValue
-    const secondValue = displayedNum // I didn't have the necessity to store it, cz it's been displayed
+    const secondValue = displayedNum // I don't have the necessity to store it, cz it's been displayed
     console.log("The firstvalue is:", firstValue, "!")
     console.log("The second value is:", secondValue,"!")
     // Make sure that all values are stored
